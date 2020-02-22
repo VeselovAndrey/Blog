@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "ba3503a7-47ec-4cac-bd32-533bd62494f9",
-		"name": "JWT Tutorial",
+		"name": "JWT Authentication",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "JwsAuthExample",
+			"name": "JwsAuthentication",
 			"item": [
 				{
 					"name": "Authentication",
@@ -72,6 +72,96 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "JwtAuthentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"TestUserName\",\n\t\"Password\": \"somePassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44315/api/authentication",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44315",
+							"path": [
+								"api",
+								"authentication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get values",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer [место для JWS]",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44315/api/values",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44315",
+							"path": [
+								"api",
+								"values"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "37d123d2-c4e2-4fc8-802f-ea03cd9d011e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3968c97a-2043-4067-bfb2-d8e34d697202",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
